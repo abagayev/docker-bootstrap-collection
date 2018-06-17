@@ -1,0 +1,33 @@
+app:
+  image: webdevops/php-nginx-dev:7.1
+  ports:
+    - "80:80"
+  volumes:
+  - .:/app
+  working_dir: /app
+  environment:
+    WEB_DOCUMENT_ROOT: /app/public
+    PHP_DEBUGGER: xdebug
+    PHP_IDE_CONFIG: serverName=lnmp-server
+    XDEBUG_CONFIG: idekey=PHPSTORM
+    XDEBUG_REMOTE_AUTOSTART: 1
+    XDEBUG_REMOTE_CONNECT_BACK: 0
+    XDEBUG_REMOTE_ENABLE: 1
+    XDEBUG_REMOTE_HOST: docker.for.mac.localhost # 172.17.0.1 for linux users
+    XDEBUG_PROFILER_ENABLE: 0
+  links:
+    - db
+
+db:
+  image: mysql:latest
+  command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  ports:
+    - "3308:3306"
+  volumes:
+    - ./docker/volumes/db:/var/lib/mysql
+  restart: always
+  environment:
+    MYSQL_DATABASE: lnmp
+    MYSQL_USER: root
+    MYSQL_PASSWORD: local
+    MYSQL_ROOT_PASSWORD: local
