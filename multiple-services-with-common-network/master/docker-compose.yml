@@ -1,0 +1,13 @@
+version: '3'
+
+networks:
+    experiments-common-network:
+        external: true
+
+services:
+    nginx:
+        image: nginx
+        volumes:
+          - ./public:/usr/share/nginx/html
+        networks:
+          - experiments-common-network
