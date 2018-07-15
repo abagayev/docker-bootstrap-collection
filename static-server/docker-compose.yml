@@ -1,0 +1,18 @@
+nginx:
+  image: nginx:latest
+  working_dir: /usr/share/nginx/html
+  ports:
+    - "80:80"
+  volumes:
+    - ./public:/usr/share/nginx/html
+  links:
+    - node
+
+node:
+  build: .
+  working_dir: /usr/src/app
+  volumes:
+   - .:/usr/src/app
+  environment:
+   BUILD_ID: 1
+

@@ -1,0 +1,14 @@
+<!-- Your document -->
+<h2>Hello</h2>
+<p>Last time you was here <b id="last_visit">...</b></p>
+
+<!-- Javascript SDK from CDN -->
+<script type="text/javascript" src="dist/main.js"></script>
+<script type="text/javascript">
+    // show last visit time
+    var last_visit = myApp.getLastVisit() || "never";
+    document.getElementById("last_visit").textContent = last_visit;
+
+    // set last visit time to now
+    myApp.setLastVisit();
+</script>
