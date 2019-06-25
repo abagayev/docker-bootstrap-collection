@@ -1,11 +1,11 @@
 version: '3'
 
 networks:
-    experiments-common-network:
+    services-common-network:
         external: true
 
 services:
     alpine-curl:
         image: byrnedo/alpine-curl
         networks:
-          - experiments-common-network
+          - services-common-network
