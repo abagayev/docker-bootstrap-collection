@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-    experiments-common-network:
+    services-common-network:
         external: true
 
 services:
@@ -10,4 +10,4 @@ services:
         volumes:
           - ./public:/usr/share/nginx/html
         networks:
-          - experiments-common-network
+          - services-common-network
