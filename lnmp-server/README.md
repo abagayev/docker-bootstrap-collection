@@ -6,7 +6,7 @@ To build and test service use next command and check your application reaching [
 
 ```shell
 docker-compose up -d
-docker-compose exec composer install
+docker-compose exec app composer install
 ```
 
 To connect with MySQL use next credentials(or change them in docker-compose):
