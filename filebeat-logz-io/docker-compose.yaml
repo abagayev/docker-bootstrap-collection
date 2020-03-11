@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.6.1
+    volumes:
+    # filebeat configuration
+    - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+
+    # add your logs directories here
+    - "./logs:/var/logs:ro"
+
+    # install certificate
+    - "./cert:/etc/pki/tls/certs:ro"
+
+    # store filebeat data and don't lose it on container restart
+    - "filebeat_data:/var/lib/filebeat:rw"
+
+volumes:
+  filebeat_data:
+    driver: local
