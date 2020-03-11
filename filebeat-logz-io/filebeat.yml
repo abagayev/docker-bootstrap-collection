@@ -1,0 +1,38 @@
+############################# Filebeat #####################################
+
+filebeat.inputs:
+
+- type: log
+  paths:
+  - /var/logs/*.log
+  fields:
+    logzio_codec: plain
+    token: %LOGZ_TOKEN%
+    type: nginx
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+#For version 7 and higher
+filebeat.registry.path: /var/lib/filebeat
+
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "beat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+
+############################# Output ##########################################
+
+output:
+  logstash:
+    hosts: ["listener.logz.io:5015"]
+    ssl:
+      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
