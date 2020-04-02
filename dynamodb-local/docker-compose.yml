@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    volumes:
+    - dynamodb:/home/dynamodblocal
+    command: [
+      "-jar",
+      "DynamoDBLocal.jar",
+      "-sharedDb",
+      "-dbPath",
+      "."
+    ]
+
+volumes:
+  dynamodb:
+    driver: local

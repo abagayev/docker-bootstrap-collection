@@ -13,6 +13,7 @@ Basic web applications:
 Basic databases and customization:
 
 * [MySQL with few databases](https://github.com/abagayev/docker-bootstrap-collection/tree/master/mysql-few-databases)
+* [DynamoDB for local development](https://github.com/abagayev/docker-bootstrap-collection/tree/master/dynamodb-local)
 
 Operations and service observability:
 
