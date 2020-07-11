@@ -1,0 +1,5 @@
+app:
+  image: webdevops/php-nginx
+  volumes:
+    - ./docker/cron:/etc/cron.d
+    - ./logs:/tmp/logs

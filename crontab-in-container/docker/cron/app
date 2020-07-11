@@ -1,0 +1,2 @@
+# let's append current date to the log file every minute for a test
+* * * * * root /bin/echo Hello from `date` >> /tmp/logs/cron.log

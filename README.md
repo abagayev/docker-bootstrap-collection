@@ -23,6 +23,7 @@ Operations and service observability:
 
 Tips and hacks:
 
+* [Crontab in container](https://github.com/abagayev/docker-bootstrap-collection/tree/master/crontab-in-container)
 * [Makefile example](https://github.com/abagayev/docker-bootstrap-collection/tree/master/makefile-example)
 
 ## Also
